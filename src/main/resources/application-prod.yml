@@ -1,28 +1,53 @@
 server:
+  address: 0.0.0.0
   port: 8101
+  servlet:
+    ontext-path: /api
 spring:
   # 数据库配置
   # todo 需替换配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/my_db
-    username: root
+    url: jdbc:mysql://43.138.153.247:3306/bulinbi?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=true
+    username: bulinbi
     password: 123456
   # Redis 配置
   # todo 需替换配置
   redis:
     database: 1
-    host: localhost
+    host: 43.138.153.247
     port: 6379
     timeout: 5000
     password: 123456
+    # 文件上传
+  rabbitmq:
+    host: 43.138.153.247
+    port: 5672
+    username: admin
+    password: 123456
+    virtual-host: /
+
+  servlet:
+    multipart:
+      # 大小限制
+      max-file-size: 10MB
+
   # Elasticsearch 配置
   # todo 需替换配置
-  elasticsearch:
-    uris: http://localhost:9200
-    username: root
-    password: 123456
+#  elasticsearch:
+#    uris: http://43.138.153.247:9200
+#    username: root
+#    password: 123456
 mybatis-plus:
   configuration:
-    # 生产环境关闭日志
-    log-impl: ''
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: isDelete # 全局逻辑删除的实体字段名
+      logic-delete-value: 1 # 逻辑已删除值（默认为 1）
+      logic-not-delete-value: 0 # 逻辑未删除值（默认为 0））
+yuapi:
+  client:
+    access-key: upi7fvgu01lhdzew1br2h3zpnuv604ut
+    secret-key: 7pb8c7maev6s7qqsgmd3h1p24hphbbgl
