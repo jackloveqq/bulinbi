@@ -14,10 +14,13 @@
   ○ 客户端输入分析诉求和原始数据，向业务后端发送请求
   ○ 业务后端利用ａｉ能力处理用户数据，过滤好，保存到数据库
   ○ 把处理好的数据发送给ａ服务，生成结果返回后端，后端在返回用户
-● ![image](https://github.com/jackloveqq/yubi-backend/assets/88128240/af902f30-4b85-47bd-af5c-92d25c2f3478)
+![image](https://github.com/jackloveqq/bulinbi/assets/88128240/79bf3783-61f8-4a62-805a-084a904e4c05)
+
 
 问题：ａｉ生成图表时间５０秒，大量用户生成ａｉ服务无法承受
 解决：消息队列（用户请求进入队列，ａｉ服务依次处理，避免大量请求压力）
 ● 优化流程（异步化）
-● ![image](https://github.com/jackloveqq/yubi-backend/assets/88128240/cf72356a-aed1-4a93-8aff-9a36cfd0f9f3)
+![Uploading image.png…]()
+
+
 
